@@ -1,0 +1,43 @@
+.page { padding: 2rem; max-width: 800px; margin: 0 auto; }
+.header { margin-bottom: 2rem; }
+.title { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 600; margin-bottom: 4px; }
+.sub { font-size: 0.82rem; color: var(--muted); }
+
+.sections { display: flex; flex-direction: column; gap: 2rem; }
+.section {}
+.sectionTitle { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--faint); margin-bottom: 0.75rem; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+
+.profileRow { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1rem; color: var(--accent2); overflow: hidden; flex-shrink: 0; }
+.avatarImg { width: 100%; height: 100%; object-fit: cover; }
+.userName { font-size: 0.9rem; font-weight: 500; }
+.userEmail { font-size: 0.78rem; color: var(--muted); }
+
+.planRow { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.planBadge { background: var(--surface3); border: 1px solid var(--border2); border-radius: 4px; padding: 3px 8px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); }
+.planGenCount { font-size: 0.82rem; color: var(--muted); }
+
+.progressBar { height: 5px; background: var(--surface3); border-radius: 3px; overflow: hidden; margin-bottom: 0.5rem; }
+.progressFill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+.resetNote { font-size: 0.72rem; color: var(--faint); }
+.loadingSmall { font-size: 0.82rem; color: var(--faint); }
+
+.planGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 0.75rem; }
+.planCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.planCurrent { border-color: var(--accent); }
+.planLabel { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.planPrice { font-family: 'Inter', sans-serif; font-size: 1.6rem; font-weight: 700; }
+.planPrice span { font-size: 0.8rem; color: var(--muted); font-family: 'Inter', sans-serif; }
+.planGens { font-size: 0.75rem; color: var(--accent2); margin-bottom: 0.5rem; }
+.planFeatures { list-style: none; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
+.planFeatures li { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.planFeatures li::before { content: '✓'; color: var(--success); font-size: 0.7rem; }
+.currentPlanTag { font-size: 0.72rem; color: var(--accent); text-align: center; padding: 6px; border: 1px solid var(--accent); border-radius: var(--radius); }
+
+.stripeNote { font-size: 0.72rem; color: var(--faint); }
+
+.dangerRow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.dangerLabel { font-size: 0.85rem; font-weight: 500; margin-bottom: 3px; }
+.dangerSub { font-size: 0.75rem; color: var(--muted); max-width: 400px; }

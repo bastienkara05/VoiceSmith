@@ -1,0 +1,63 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f9fafb;
+  --surface:   #ffffff;
+  --surface2:  #f3f4f6;
+  --surface3:  #e5e7eb;
+  --border:    #e5e7eb;
+  --border2:   #d1d5db;
+  --text:      #111827;
+  --muted:     #4b5563;
+  --faint:     #9ca3af;
+  --accent:    #0066cc;
+  --accent2:   #0052a3;
+  --warrior:   #dc2626;
+  --nurse:     #059669;
+  --wizard:    #7c3aed;
+  --villain:   #db2777;
+  --narrator:  #0284c7;
+  --success:   #059669;
+  --error:     #dc2626;
+  --radius:    8px;
+  --radius-lg: 12px;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+::selection { background: rgba(37,99,235,0.2); }
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+input:focus, textarea:focus, select:focus { border-color: var(--accent); background: var(--bg); box-shadow: 0 0 0 3px rgba(37,99,235,0.1), 0 2px 8px rgba(37,99,235,0.15); }
+input::placeholder, textarea::placeholder { color: var(--muted); font-weight: 400; }
+
+button { font-family: inherit; cursor: pointer; }
+
+audio { accent-color: var(--accent); }

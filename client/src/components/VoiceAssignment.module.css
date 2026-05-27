@@ -1,0 +1,123 @@
+.container {
+  position: relative;
+}
+
+.containerSelected .trigger {
+  background: var(--surface2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: inherit;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.trigger:hover {
+  border-color: var(--border2);
+  background: var(--surface2);
+}
+
+.emoji {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.name {
+  flex: 1;
+  color: var(--text);
+}
+
+.preset {
+  font-size: 0.75rem;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  color: var(--muted);
+}
+
+.chevron.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.voiceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.voiceListItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.12s;
+}
+
+.voiceListItem:last-child {
+  border-bottom: none;
+}
+
+.voiceListItem:hover {
+  background: var(--surface2);
+}
+
+.voiceListItemSelected {
+  background: var(--surface2);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.voiceListEmoji {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.voiceListName {
+  flex: 1;
+}

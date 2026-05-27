@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--surface2);
+  border-radius: var(--radius);
+}
+
+.disabled {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface3);
+  border-radius: 4px;
+  color: var(--faint);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.disabled svg {
+  flex-shrink: 0;
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+  color: var(--success);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.success svg {
+  flex-shrink: 0;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+  color: var(--error);
+  font-size: 0.8rem;
+}
+
+.error svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}

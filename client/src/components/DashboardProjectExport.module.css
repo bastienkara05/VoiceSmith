@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+  display: flex;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  color: var(--faint);
+  padding: 6px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  opacity: 0.7;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 1;
+  color: var(--text);
+  background: var(--surface2);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.item {
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover:not(:disabled) {
+  background: var(--surface2);
+  color: var(--accent);
+}
+
+.item:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

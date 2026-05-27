@@ -16,11 +16,11 @@ VoiceSmith turns a script into a folder of game-ready voice files. Writers and i
 
 ## Demo
 
-> Screenshots / demo GIF coming soon. Drop your captures into `docs/screenshots/` and reference them here, for example:
->
-> ![Dashboard](docs/screenshots/projectviewvs.png)
-> ![Scene Editor](docs/screenshots/SceneEditor.png)
-> ![Unity export](docs/screenshots/unity-export.png)
+
+
+> ![Dashboard]("docs/screenshots/projectviewvs.png")
+> ![Scene Editor]("docs/screenshots/SceneEditor.png")
+
 
 ---
 

@@ -18,8 +18,8 @@ VoiceSmith turns a script into a folder of game-ready voice files. Writers and i
 
 
 
-![Dashboard](<docs/screenshots/Project View vs.png>)
-> ![Scene Editor](<docs/screenshots/Scene Editor.png>)
+>![Dashboard](<docs/screenshots/Project View vs.png>)
+>![Scene Editor](<docs/screenshots/Scene Editor.png>)
 
 
 ---

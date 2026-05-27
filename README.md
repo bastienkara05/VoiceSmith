@@ -31,7 +31,6 @@ VoiceSmith turns a script into a folder of game-ready voice files. Writers and i
 - **Batch generation.** Generate every line in a scene or project in one click, with progress tracking and per-line retry.
 - **Engine-aware export.** Build a Unity `ScriptableObject` package, an Unreal `DataTable` CSV with `.uasset` references, or a Godot `.tres` resource pack — pick the engine and ship.
 - **Quotas and plans.** Free / Indie / Studio tiers with monthly generation counts enforced server-side. Usage resets automatically on the first of each month.
-- **Email verification & account flows.** Users must verify their email before generating; resend / pending states handled end-to-end.
 - **Multi-tenant data model.** All reads/writes are scoped to the authenticated Auth0 user; project-level cascading deletes keep the schema clean.
 
 ---
@@ -43,9 +42,8 @@ VoiceSmith turns a script into a folder of game-ready voice files. Writers and i
 | Frontend     | React 19 + Vite + CSS Modules            | Fast dev loop, scoped styles, zero-config routing via React Router.                  |
 | Backend      | Node + Express                           | Lightweight REST API; easy to host on Railway / Render.                              |
 | Database     | PostgreSQL (UUIDs, cascading FKs)        | Strong relational model for projects -> scenes -> lines -> characters.               |
-| Auth         | Auth0 (SPA + API)                        | JWT bearer flow, hosted login, email verification out of the box.                    |
+| Auth         | Auth0 (SPA + API)                        | JWT bearer flow, hosted login, secure token-based auth.                              |
 | Voice AI     | ElevenLabs Text-to-Speech                | Studio-grade voices with per-request emotion / stability tuning.                     |
-| Email        | Resend                                   | Transactional verification emails.                                                   |
 | Deployment   | Vercel (client) + Railway (server + DB)  | Both free-tier friendly, deploy on push.                                             |
 
 ---
@@ -63,11 +61,11 @@ VoiceSmith turns a script into a folder of game-ready voice files. Writers and i
                               +-----------+----------+
                                           |
                           +---------------+---------------+
-                          v                               v
-                  +---------------+               +---------------+
-                  | ElevenLabs    |               | Resend (mail) |
-                  | TTS API       |               |               |
-                  +---------------+               +---------------+
+                                          v
+                                  +---------------+
+                                  | ElevenLabs    |
+                                  | TTS API       |
+                                  +---------------+
 ```
 
 Auth flow: SPA gets an access token from Auth0 -> sends it as `Authorization: Bearer ...` on every API call -> Express middleware validates the JWT against Auth0's JWKS and attaches `req.user` before any route handler runs.
@@ -80,7 +78,7 @@ Auth flow: SPA gets an access token from Auth0 -> sends it as `Authorization: Be
 voicesmith/
 ├── client/                          # React + Vite frontend
 │   ├── src/
-│   │   ├── pages/                   # Landing, Dashboard, Project, Settings, Callback, VerifyEmail
+│   │   ├── pages/                   # Landing, Dashboard, Project, Settings, Callback
 │   │   ├── components/
 │   │   │   ├── BatchGenerator.jsx   # Bulk line generation with progress
 │   │   │   ├── UnityExport.jsx      # Engine-specific export dialogs
@@ -104,11 +102,10 @@ voicesmith/
 │   │   ├── batch.js                 # Whole-scene / whole-project generation
 │   │   ├── export.js                # Unity / Unreal / Godot manifests
 │   │   ├── import.js                # Bulk line import
-│   │   └── account.js               # Plan, usage, email verification
+│   │   └── account.js               # Account deletion + cascading data cleanup
 │   ├── middleware/auth.js           # Auth0 JWT validation
 │   ├── lib/
-│   │   ├── presets.js               # Voice preset definitions
-│   │   └── email.js                 # Resend wrapper
+│   │   └── presets.js               # Voice preset definitions
 │   ├── db/
 │   │   ├── pool.js                  # pg connection pool
 │   │   └── schema.sql               # Full schema with triggers
@@ -143,8 +140,7 @@ voicesmith/
 | POST   | /api/import/scene/:id       | Bulk import lines from text                    |
 | GET    | /api/export/scene/:id       | Engine-aware scene export                      |
 | GET    | /api/export/project/:id     | Engine-aware project export                    |
-| GET    | /api/account                | Current plan, quota, verification status       |
-| POST   | /api/account/verify-email   | Trigger / confirm email verification           |
+| DELETE | /api/account                | Delete user account and all associated data    |
 
 ---
 

@@ -68,8 +68,6 @@ function getErrorMessage(error) {
   switch (data?.code) {
     case 'LIMIT_REACHED':
       return `Generation limit reached. Upgrade your plan to continue.`
-    case 'EMAIL_NOT_VERIFIED':
-      return 'Please verify your email to generate voice lines. Check your inbox for the verification link.'
     case 'AUTH_REQUIRED':
       return 'Please log in again.'
     case 'FORBIDDEN':

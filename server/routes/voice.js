@@ -212,7 +212,6 @@ router.get('/usage', async (req, res) => {
     used: req.user.generations_used,
     limit: limit === Infinity ? null : limit,
     reset_at: req.user.generations_reset_at,
-    email_verified: req.user.email_verified || false,
   });
 });
 
@@ -222,14 +221,6 @@ router.post('/generate', limiter, async (req, res) => {
 
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
   if (text.length > 5000) return res.status(400).json({ error: 'text too long (max 5000 chars)' });
-
-  // Check if email is verified
-  if (!req.user.email_verified) {
-    return res.status(403).json({
-      error: 'Please verify your email to generate voice lines',
-      code: 'EMAIL_NOT_VERIFIED',
-    });
-  }
 
   // Check generation limit
   const limit = PLAN_LIMITS[req.user.plan]?.generations ?? 20;

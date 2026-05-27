@@ -6,8 +6,6 @@ import Callback from './pages/Callback'
 import Dashboard from './pages/Dashboard'
 import Project from './pages/Project'
 import Settings from './pages/Settings'
-import VerifyEmail from './pages/VerifyEmail'
-import VerifyEmailPending from './pages/VerifyEmailPending'
 import AppShell from './components/layout/AppShell'
 import { ToastProvider } from './components/Toast'
 import { ErrorBoundary } from './components/ErrorBoundary'
@@ -47,8 +45,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/callback" element={<Callback />} />
-            <Route path="/verify-email-pending" element={<VerifyEmailPending />} />
-            <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/dashboard" element={
               <ProtectedRoute><AppShell><Dashboard /></AppShell></ProtectedRoute>
             } />
